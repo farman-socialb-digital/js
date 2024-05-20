@@ -6,12 +6,12 @@
 	<title>JS</title>
 </head>
 <body>
-	<div id="getValue">aaa</div>
+	<div id="getSumValue"></div>
 	<script type="text/javascript">
 		let sum = (a, b)=> a + b;
-		let big = document.getElementById('getValue').innerHTML = "big";
-		let small = document.getElementById("getValue").innerHTML = "small";
-		sum(3, 4) > 4 ? big() : small();
+		let big = ()=> document.getElementById("getSumValue").innerHTML = "Big";
+		let small = ()=> document.getElementById("getSumValue").innerHTML = "small";
+		sum(2, 2) >= 4 ? big() : small();
 	</script>
 </body>
 </html>
