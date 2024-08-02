@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JS</title>
+</head>
+<body>
+	<div id="getSumValue"></div>
+	<script type="text/javascript">
+		let sum = (a, b)=> a + b;
+		let big = ()=> document.getElementById("getSumValue").innerHTML = "Big";
+		let small = ()=> document.getElementById("getSumValue").innerHTML = "small";
+		setTimeout( ()=> sum(2, 2) >= 4 ? big() : small(), 1000);
+	</script>
+</body>
+</html>

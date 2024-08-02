@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script type="text/javascript">
+		function addRow () {
+		  document.querySelector('#content').insertAdjacentHTML(
+		    'afterbegin',
+		    `<div class="row">
+		      <input type="text" name="name" value="" />
+		      <input type="text" name="value" value="" />
+		      <label><input type="checkbox" name="check" value="1" />Checked?</label>
+		      <input type="button" value="-" onclick="removeRow(this)">
+		    </div>`      
+		  )
+		}
+
+		function removeRow (input) {
+		  input.parentNode.remove()
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="+" onclick="addRow()">
+	<div id="content"></div>
+</body>
+</html>

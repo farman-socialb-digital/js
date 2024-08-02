@@ -1,0 +1,12 @@
+php artisan serve --host=192.168.18.145 --port=8000
+php artisan serve --port=8000
+
+npm install
+npm run watch
+npm install laravel-mix@latest --save-dev
+
+mysql -u root taifalemarat < D:\taifalemarat.sql
+
+
+php artisan tinker
+Hash::make('12345678')

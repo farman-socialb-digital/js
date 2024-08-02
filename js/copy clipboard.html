@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+
+</head>
+
+<body>
+
+<p id="textToCopy">This is the text to be copied</p>
+<input id="inputNode" type="text" placeholder="Copied text will be pasted here" /> <br/>
+
+<a href="#" onclick="cb.copy()">copy</a>
+<a href="#" onclick="cb.cut()">cut</a>
+<a href="#" onclick="cb.paste()">paste</a>
+
+
+<script>
+function Clipboard() {
+    /* Here we're hardcoding the range of the copy
+    and paste. Change to achieve desire behavior. You can
+    get the range for a user selection using
+    window.getSelection or document.selection on Opera*/
+    this.oRange = document.createRange();
+    var textNode = document.getElementById("textToCopy");
+    var inputNode = document.getElementById("inputNode");
+    this.oRange.setStart(textNode,0);
+    this.oRange.setEndAfter(textNode);
+    /* --------------------------------- */
+}
+
+Clipboard.prototype.copy = function() {
+    this.oFragment= this.oRange.cloneContents();
+};
+
+Clipboard.prototype.cut = function() {
+    this.oFragment = this.oRange.extractContents();
+};
+
+Clipboard.prototype.paste = function() {
+    var cloneFragment=this.oFragment.cloneNode(true)
+    inputNode.value = cloneFragment.textContent;
+};
+
+window.cb = new Clipboard();
+</script>
+
+</body>
+</html>

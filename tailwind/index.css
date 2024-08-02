@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+::-webkit-scrollbar { @apply w-1.5 h-1 }
+::-webkit-scrollbar-track { @apply rounded-3xl bg-sky-200 }
+::-webkit-scrollbar-thumb { @apply rounded-3xl bg-blue }
+::-webkit-scrollbar-thumb:hover { @apply bg-blue }
+::selection { @apply bg-blue text-white; }
+@layer components {
+  .btn-primary { @apply bg-blue text-white rounded-lg  py-3 px-4; }
+  .btn-disabled { @apply bg-dark text-white rounded-lg  py-4; }
+  .form-control { @apply placeholder:text-grey text-dark rounded-lg border outline-none p-[0.875rem] w-full dark:bg-light-dark-mode dark:border-0 dark:text-grey-mode border-slate-200; }
+  .alert-message { @apply rounded-lg p-4 text-center text-white; }
+}
+@media print {
+  body { visibility: hidden; }
+  body * { height: 0 !important; }
+  body *:has(.print-invoice),
+  body .print-invoice,
+  body .print-invoice * { height: auto !important; width:100% ; }
+  body .print-invoice { position: relative; left: 0px; visibility: visible; max-height: auto !important; width:30% !important; overflow-y: initial !important; }
+  .print-invoice-img img { max-width: 50px;  max-height: 50px;  }
+  .social-media { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .print-sale-invoice-popup .print-invoice-scroll { margin: 0 -5px; }
+  @page { width: 100%;  margin: 0.5cm;  }
+}
+.datePickerWidth { width: 312px; }
+/*slick slider on POS screen*/
+.sales-category-slick-slider { margin: 0 23px 20px 23px; }
+.sales-category-slick-slider .slick-prev:before, .sales-category-slick-slider .slick-next:before { color: #34395e; }
+.sales-category-slick-slider .slick-track .slick-slide { padding: 0 5px; }
+.sales-category-slick-slider .slick-prev:before, .sales-category-slick-slider .slick-next:before { font-size: 25px; }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+.react-datepicker-wrapper { width: 100% !important; }
+.css-13cymwt-control{ border: #e2e8f0 solid 1px !important; }

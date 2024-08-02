@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JS</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let str = "123456";
+		let result1 = Array.from(str, Number);
+
+		let func = function() { return Array.from(arguments).join('') };
+		let result2 = func('f', 'a', 'r', 'm', 'a', 'n', 'a', 'l', 'i');
+
+		console.log(typeof(str));
+		console.log(result1);
+		console.log(result2);
+	</script>
+</body>
+</html>

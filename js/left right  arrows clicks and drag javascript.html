@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.color-left-arrow, .color-right-arrow{ width: 30px; height: 30px; background: #eee; line-height: 30px; text-align: center; border-radius: 50%; min-width: 30px; }
+		#scrollContainer{ display: flex; overflow-x: auto; margin: 30px; }
+		#scrollContainer .circle{ width: 60px; height: 60px; background: #eee; border-radius: 50%; min-width: 60px; }
+	</style>
+</head>
+<body>
+
+	<div style="display: flex; justify-content: space-between; align-items: center; margin: 30px;">
+		<div class="color-left-arrow">
+            <
+        </div>
+        <div id="scrollContainer">
+        	<div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
+        	<div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
+        	<div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div>
+        </div>
+        <div class="color-right-arrow">
+            >
+        </div>
+	</div>
+
+	<script type="text/javascript">
+		const scrollContainer = document.getElementById('scrollContainer');
+		let isDown = false;
+		let startX;
+		let scrollLeft;
+		let isDragging = false;
+		
+		scrollContainer.addEventListener('mousedown', (e) => {
+		    isDown = true;
+		    isDragging = false;
+		    scrollContainer.classList.add('active');
+		    startX = e.pageX - scrollContainer.offsetLeft;
+		    scrollLeft = scrollContainer.scrollLeft;
+		});
+		
+		scrollContainer.addEventListener('mouseleave', () => {
+		    isDown = false;
+		    scrollContainer.classList.remove('active');
+		});
+		
+		scrollContainer.addEventListener('mouseup', () => {
+		    isDown = false;
+		    scrollContainer.classList.remove('active');
+		});
+		
+		scrollContainer.addEventListener('mousemove', (e) => {
+		    if (!isDown) return;
+		    isDragging = true;
+		    e.preventDefault();
+		    const x = e.pageX - scrollContainer.offsetLeft;
+		    const walk = (x - startX) * 2; // scroll-fast
+		    scrollContainer.scrollLeft = scrollLeft - walk;
+		});
+		
+		scrollContainer.addEventListener('click', (e) => {
+		    if (isDragging) {
+		        e.preventDefault();
+		        e.stopImmediatePropagation();
+		    }
+		});
+		
+		// Scroll to left on left arrow click
+		document.querySelector('.color-left-arrow').addEventListener('click', (e) => {
+		    e.preventDefault();
+		    scrollContainer.scrollTo({
+		        left: scrollContainer.scrollLeft - 100,
+		        behavior: 'smooth' // Smooth scrolling
+		    });
+		});
+		// Scroll to right on right arrow click
+		document.querySelector('.color-right-arrow').addEventListener('click', (e) => {
+		    e.preventDefault();
+		    scrollContainer.scrollTo({
+		        left: scrollContainer.scrollLeft + 100,
+		        behavior: 'smooth' // Smooth scrolling
+		    });
+		});
+	</script>
+</body>
+</html>
